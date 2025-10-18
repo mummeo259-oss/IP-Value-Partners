@@ -1,2 +1,2 @@
 # IP-Value-Partners
-IP
+IP valeue partners
