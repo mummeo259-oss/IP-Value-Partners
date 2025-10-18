@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP-Value Partners | 지역 기업 IP 금융 전문 컨설팅</title>
+    <style>
+        /* ==================== 기본 설정 ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ==================== 히어로 섹션 ==================== */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 120px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* ==================== 공통 섹션 스타일 ==================== */
+        section {
+            padding: 80px 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== 문제 섹션 ==================== */
+        .problem {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .problem-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .problem-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .problem-label {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* ==================== 솔루션 섹션 ==================== */
+        .solution {
+            background: white;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .solution-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .solution-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .solution-card p {
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* ==================== 서비스 섹션 ==================== */
+        .services {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .service-detail-btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-detail-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 35px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .modal h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .modal ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ==================== 이용 방법 섹션 ==================== */
+        .how-it-works {
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ==================== 특장점 섹션 ==================== */
+        .features {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .feature-card:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            line-height: 1.7;
+        }
+
+        .feature-card:hover h3,
+        .feature-card:hover p {
+            color: white;
+        }
+
+        /* ==================== CTA 섹션 ==================== */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-emoji {
+            font-size: 60px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ==================== FAQ 섹션 ==================== */
+        .faq {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .faq-toggle {
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+
+        .faq-answer p {
+            padding: 0 0 25px 0;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* ==================== 푸터 ==================== */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-contact {
+            margin-bottom: 30px;
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        .footer-copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        /* ==================== 애니메이션 ==================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== 반응형 디자인 ==================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-emoji">💼🔍📊</div>
+            <h1>IP-Value Partners</h1>
+            <h2>잠자는 지역 기업의 기술 특허를 깨워<br>기관 투자를 유치하는 IP 금융 전문 컨설팅</h2>
+            <p>기술과 자본 사이의 간극을 메우는 당신의 'IP-to-Capital' 번역가</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">서비스 소개 보기 📋</a>
+                <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" class="btn btn-secondary">무료 상담 신청 ✨</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 문제 제시 섹션 -->
+    <section class="problem scroll-animate">
+        <div class="container">
+            <h2 class="section-title">왜 IP-Value Partners가 필요한가요? 🤔</h2>
+            <p class="section-subtitle">지역 경제에는 근본적인 '가치평가의 불일치'가 존재합니다</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-label">기술 기업의 고민</span>
+                    <div class="problem-icon">🏢</div>
+                    <h3>저평가되는 기술력</h3>
+                    <p>독보적인 기술력을 보유하고 있지만, 지역 투자자와 은행은 유형 담보나 현재 매출 실적만으로 평가합니다. 마땅히 받아야 할 기업가치를 인정받지 못하고, 성장에 필수적인 자본 확보에 극심한 어려움을 겪고 있습니다.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-label">투자자의 고민</span>
+                    <div class="problem-icon">💰</div>
+                    <h3>평가할 수 없는 기술</h3>
+                    <p>유망한 지역 기술 기업들이 눈에 띄지만, 기술적 우위, 특허의 견고함, 잠재적 침해 리스크를 정확히 평가할 내부 전문성이 부족합니다. 기술이라는 '블랙박스'에만 의존하여 투자를 정당화하기는 매우 어렵습니다.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-label">핵심 문제</span>
+                    <div class="problem-icon">🔄</div>
+                    <h3>소통의 단절</h3>
+                    <p>혁신가들은 '기술'의 언어로 소통하고, 금융가들은 '재무제표'의 언어로 소통합니다. 이 소통의 단절은 기업의 저평가, 투자자의 보수적 태도, 그리고 궁극적으로 지역 혁신 생태계의 정체로 이어집니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 솔루션 섹션 -->
+    <section class="solution scroll-animate">
+        <div class="container">
+            <h2 class="section-title">IP-Value Partners의 해결책 💡</h2>
+            <p class="section-subtitle">우리는 당신의 'IP-to-Capital' 번역가입니다</p>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <span class="solution-icon">🎯</span>
+                    <h3>기술을 가치로 번역</h3>
+                    <p>복잡한 기술과 특허 포트폴리오를 금융가들이 이해하고 신뢰할 수 있는 명확하고 데이터에 기반한 가치평가 및 투자 논리로 변환합니다.</p>
+                </div>
+                <div class="solution-card">
+                    <span class="solution-icon">📊</span>
+                    <h3>리스크를 신뢰로 전환</h3>
+                    <p>엄격한 IP 실사를 통해 투자 대상 기업의 특허 포트폴리오를 분석하고, 잠재적 리스크를 식별하며, 경쟁사 기술과 벤치마킹하여 확신 있는 투자 결정을 지원합니다.</p>
+                </div>
+                <div class="solution-card">
+                    <span class="solution-icon">🚀</span>
+                    <h3>자본 조달의 새로운 경로</h3>
+                    <p>IP 기반 금융에 대한 전략적 자문을 제공하고, 복잡한 정부 정책자금 신청 과정을 안내하며, 무형 자산을 활용한 새로운 자금 조달 경로를 열어드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 소개 섹션 -->
+    <section class="services scroll-animate" id="services">
+        <div class="container">
+            <h2 class="section-title">제공 서비스 ⭐</h2>
+            <p class="section-subtitle">기업과 투자자 모두를 위한 맞춤형 IP 금융 솔루션</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>기술가치평가</h3>
+                    <p>귀사 IP의 시장 가치, 경쟁력, 미래 수익 잠재력을 증명하는 종합 보고서</p>
+                    <button class="service-detail-btn" onclick="openModal('modal1')">자세히 보기</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>IP 실사 서비스</h3>
+                    <p>투자 대상 기업의 특허 포트폴리오 분석 및 리스크 평가</p>
+                    <button class="service-detail-btn" onclick="openModal('modal2')">자세히 보기</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>투자유치 전략 컨설팅</h3>
+                    <p>시드부터 시리즈 A까지 단계별 투자유치 전략 수립</p>
+                    <button class="service-detail-btn" onclick="openModal('modal3')">자세히 보기</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏦</div>
+                    <h3>정책금융 신청 지원</h3>
+                    <p>복잡한 정부 기술금융 대출 및 지원사업 신청 전략 자문</p>
+                    <button class="service-detail-btn" onclick="openModal('modal4')">자세히 보기</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>기술이전 자문</h3>
+                    <p>대학 및 공공 연구소의 특허 포트폴리오 가치 평가 및 상용화 전략</p>
+                    <button class="service-detail-btn" onclick="openModal('modal5')">자세히 보기</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>IP 포트폴리오 관리</h3>
+                    <p>전략적 특허 포트폴리오 구축 및 최적화 컨설팅</p>
+                    <button class="service-detail-btn" onclick="openModal('modal6')">자세히 보기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 모달 1: 기술가치평가 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>📈 기술가치평가</h2>
+            <p>귀사의 기술과 특허를 금융가들이 이해할 수 있는 언어로 번역합니다.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>심층적인 기술가치평가를 통해 귀사 IP의 시장 가치, 경쟁력, 미래 수익 잠재력을 객관적으로 증명하는 종합 보고서를 제공합니다. 더 높은 기업가치를 주장하고 성공적으로 투자를 유치할 수 있도록 지원합니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>특허 포트폴리오 정밀 분석</li>
+                <li>시장 규모 및 성장 가능성 평가</li>
+                <li>경쟁사 기술 벤치마킹</li>
+                <li>수익화 시나리오 모델링</li>
+                <li>투자자 맞춤형 프레젠테이션 자료</li>
+                <li>기업가치 산정 보고서</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>2-3주 (기업 규모 및 특허 수에 따라 조정)</p>
+        </div>
+    </div>
+
+    <!-- 모달 2: IP 실사 서비스 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>🔍 IP 실사 서비스</h2>
+            <p>투자 결정의 불확실성을 제거하고 확신을 드립니다.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>엄격한 IP 실사를 통해 투자 대상 기업의 특허 포트폴리오를 분석하고, 잠재적 리스크를 식별하며, 경쟁사 기술과 벤치마킹하여 정보에 기반한 확신 있는 투자 결정을 내릴 수 있도록 돕습니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>특허 유효성 및 권리 범위 검증</li>
+                <li>침해 리스크 분석</li>
+                <li>선행기술 조사</li>
+                <li>경쟁 기술 비교 분석</li>
+                <li>IP 소송 이력 검토</li>
+                <li>투자 리스크 평가 보고서</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>2-4주 (특허 수 및 분석 깊이에 따라 조정)</p>
+        </div>
+    </div>
+
+    <!-- 모달 3: 투자유치 전략 컨설팅 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>💼 투자유치 전략 컨설팅</h2>
+            <p>시드부터 시리즈 A까지, 성공적인 투자유치를 위한 전략을 제시합니다.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>투자 단계별 맞춤형 전략을 수립하고, IP 중심의 기업가치 스토리를 구축하여 투자자를 설득할 수 있는 강력한 논리를 개발합니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>투자 단계별 전략 로드맵</li>
+                <li>IP 중심 기업가치 스토리텔링</li>
+                <li>투자자 타겟팅 및 접근 전략</li>
+                <li>피칭 덱 개발 지원</li>
+                <li>투자 계약 조건 자문</li>
+                <li>모의 투자설명회(IR) 코칭</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>3-4주 (지속적 자문 가능)</p>
+        </div>
+    </div>
+
+    <!-- 모달 4: 정책금융 신청 지원 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h2>🏦 정책금융 신청 지원</h2>
+            <p>복잡한 정부 지원사업, 우리가 함께 풀어드립니다.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>기술보증기금, 신용보증기금, 정책금융기관의 기술금융 대출 및 지원사업 신청 과정을 전략적으로 지원합니다. IP를 활용한 최적의 금융 솔루션을 찾아드립니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>적합 정책금융 상품 매칭</li>
+                <li>신청서류 작성 전략 자문</li>
+                <li>기술평가 대비 컨설팅</li>
+                <li>IP 가치 입증 자료 준비</li>
+                <li>심사위원회 대응 코칭</li>
+                <li>신청 후 Follow-up 지원</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>2-3주 (신청 시기에 따라 조정)</p>
+        </div>
+    </div>
+
+    <!-- 모달 5: 기술이전 자문 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <h2>🤝 기술이전 자문</h2>
+            <p>연구 성과를 상용화 수익으로 전환합니다.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>대학 산학협력단 및 공공 연구소가 보유한 특허 포트폴리오의 가치를 평가하고, 성공적인 기술이전 및 상용화를 위한 전략을 수립합니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>특허 포트폴리오 가치 평가</li>
+                <li>상용화 가능성 분석</li>
+                <li>잠재적 라이선시 발굴</li>
+                <li>기술이전 계약 전략 자문</li>
+                <li>로열티 구조 설계</li>
+                <li>마케팅 자료 개발 지원</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>3-5주 (포트폴리오 규모에 따라 조정)</p>
+        </div>
+    </div>
+
+    <!-- 모달 6: IP 포트폴리오 관리 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <h2>📋 IP 포트폴리오 관리</h2>
+            <p>전략적 특허 포트폴리오로 경쟁 우위를 확보하세요.</p>
+            
+            <h3>서비스 개요</h3>
+            <p>귀사의 사업 전략과 연계된 체계적인 특허 포트폴리오를 구축하고 최적화합니다. 불필요한 특허는 정리하고, 핵심 기술은 강화하여 투자가치를 극대화합니다.</p>
+            
+            <h3>포함 내용</h3>
+            <ul>
+                <li>현재 포트폴리오 진단</li>
+                <li>사업 전략 연계 IP 전략 수립</li>
+                <li>특허 출원 우선순위 설정</li>
+                <li>유지 vs 포기 의사결정 지원</li>
+                <li>경쟁사 특허 모니터링</li>
+                <li>포트폴리오 가치 최적화 방안</li>
+            </ul>
+            
+            <h3>예상 소요 시간</h3>
+            <p>4-6주 (지속적 관리 서비스 가능)</p>
+        </div>
+    </div>
+
+    <!-- 이용 방법 섹션 -->
+    <section class="how-it-works scroll-animate">
+        <div class="container">
+            <h2 class="section-title">이용 방법 🚀</h2>
+            <p class="section-subtitle">간단한 4단계로 시작하세요</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1️⃣</div>
+                    <h3>무료 상담 신청</h3>
+                    <p>간단한 폼 작성으로 현재 상황과 니즈를 공유해주세요. 24시간 내 연락드립니다.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2️⃣</div>
+                    <h3>맞춤 전략 수립</h3>
+                    <p>귀사의 상황을 분석하고 최적의 서비스와 접근 방법을 제안합니다.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3️⃣</div>
+                    <h3>전문 분석 실행</h3>
+                    <p>IP 전문가들이 심층 분석을 수행하고 명확한 결과물을 도출합니다.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4️⃣</div>
+                    <h3>성과 달성 지원</h3>
+                    <p>투자 유치 또는 금융 조달 성공까지 지속적으로 함께합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 특장점 섹션 -->
+    <section class="features scroll-animate">
+        <div class="container">
+            <h2 class="section-title">왜 IP-Value Partners를 선택해야 하나요? ✨</h2>
+            <p class="section-subtitle">지역 기업과 투자자를 연결하는 가장 확실한 선택</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>전문성</h3>
+                    <p>기술평가사, 변리사, 금융 전문가로 구성된 멀티 디시플린 팀이 귀사를 지원합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌏</div>
+                    <h3>지역 특화</h3>
+                    <p>지역 금융기관과 투자자 네트워크를 깊이 이해하고 있어 실질적인 성과를 만들어냅니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>데이터 기반</h3>
+                    <p>감이 아닌 객관적 데이터와 검증된 방법론으로 투자자를 설득합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>신속한 대응</h3>
+                    <p>투자 타이밍을 놓치지 않도록 신속하고 효율적인 프로세스로 지원합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>맞춤형 솔루션</h3>
+                    <p>획일적인 템플릿이 아닌, 귀사의 상황에 최적화된 전략을 제시합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>성과 중심</h3>
+                    <p>보고서 작성에 그치지 않고 실제 투자 유치와 자금 조달 성공까지 함께합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 섹션 -->
+    <section class="faq scroll-animate">
+        <div class="container">
+            <h2 class="section-title">자주 묻는 질문 ❓</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 어떤 기업이 서비스를 받을 수 있나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>기술 기반 중소기업, 스타트업, 대학 산학협력단, 공공 연구소 등 특허나 기술 자산을 보유하고 이를 기반으로 투자나 금융 지원이 필요한 모든 조직이 대상입니다. 시드 단계부터 시리즈 A 이상의 기업까지 폭넓게 지원합니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 특허가 없어도 서비스를 받을 수 있나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>특허 출원 전이거나 노하우 형태의 기술을 보유한 경우에도 가능합니다. 오히려 특허 출원 전략부터 함께 수립하여 더 강력한 IP 포트폴리오를 구축할 수 있습니다. 먼저 상담을 통해 현재 상황을 점검해보시길 권장합니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 비용은 어떻게 되나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>서비스 범위와 기업 규모에 따라 맞춤형으로 책정됩니다. 초기 상담은 무료이며, 상담 후 구체적인 견적을 제공해드립니다. 또한 성과 기반 보수 옵션도 논의 가능하니 부담 없이 문의해주세요.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 서비스 기간은 얼마나 걸리나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>서비스 유형에 따라 2주에서 6주 정도 소요됩니다. 긴급한 투자 일정이 있는 경우 신속 대응 서비스(Fast Track)도 가능하니 상담 시 말씀해주세요. 명확한 마일스톤과 일정을 함께 수립합니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 기밀 정보는 안전하게 보호되나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>절대적으로 보호됩니다. 모든 프로젝트 시작 전 NDA(비밀유지계약)를 체결하며, 귀사의 기술 정보와 사업 전략은 철저히 보호됩니다. 전문가 윤리 기준을 준수하며, 정보보안 체계를 갖추고 있습니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 투자 유치를 보장할 수 있나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>투자 유치 자체를 보장할 수는 없지만, IP 가치 입증과 투자 논리 구축을 통해 성공 가능성을 최대한 높여드립니다. 실제로 저희 컨설팅을 받은 기업들의 투자 유치율이 평균 대비 높은 성과를 보이고 있습니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>❓ 지역 기업이 아니어도 서비스를 받을 수 있나요?</h3>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>물론입니다. 지역 기업에 특화되어 있지만, 전국 어디에 계신 기업이든 서비스를 제공합니다. 온라인 미팅과 화상 회의 시스템을 통해 원격으로도 효과적인 컨설팅이 가능합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 섹션 -->
+    <section class="cta-section scroll-animate">
+        <div class="container">
+            <div class="cta-emoji">🚀💡📈</div>
+            <h2>지금 바로 시작하세요</h2>
+            <p>당신의 기술 자산을 투자 자본으로 전환할 시간입니다.<br>
+            첫 상담은 무료입니다. 부담 없이 문의해주세요.</p>
+            <div class="cta-buttons">
+                <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" class="btn btn-primary">무료 상담 신청하기 ✨</a>
+                <a href="mailto:contact@ipvaluepartners.com" class="btn btn-secondary">이메일로 문의하기 📧</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">IP-Value Partners 💼</div>
+            <div class="footer-tagline">기술과 자본을 연결하는 IP 금융 전문가</div>
+            <div class="footer-contact">
+                <p>📧 Email: contact@ipvaluepartners.com</p>
+                <p>📞 Tel: 042-XXX-XXXX</p>
+                <p>📍 Location: 대전광역시 (지역 혁신의 중심에서)</p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 IP-Value Partners. All rights reserved.</p>
+                <p>지역 정주형 창직 프로젝트</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 맨 위로 버튼 -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // ==================== 스크롤 애니메이션 ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(element => {
+            observer.observe(element);
+        });
+
+        // ==================== 부드러운 스크롤 ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ==================== 모달 관리 ====================
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모달 외부 클릭 시 닫기
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // ==================== FAQ 토글 ====================
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // 모든 FAQ 아이템 닫기
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 클릭한 아이템만 열기 (이미 열려있었다면 닫기)
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // ==================== 맨 위로 버튼 ====================
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ==================== 페이지 로드 애니메이션 ====================
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
